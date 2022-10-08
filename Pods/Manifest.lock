@@ -1,0 +1,16 @@
+PODS:
+  - MapKitGoogleStyler (0.1.1)
+
+DEPENDENCIES:
+  - MapKitGoogleStyler
+
+SPEC REPOS:
+  trunk:
+    - MapKitGoogleStyler
+
+SPEC CHECKSUMS:
+  MapKitGoogleStyler: 8efdceb664fc1748a62a9e3b50a34b67a34247bc
+
+PODFILE CHECKSUM: 24aee90244b2680c0958d308ddabb1efd37ecf53
+
+COCOAPODS: 1.11.3
