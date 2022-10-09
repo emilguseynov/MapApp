@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A384F059A39EEEC92C37F789F58DF8B0"
-               BuildableName = "MapKitGoogleStyler.framework"
-               BlueprintName = "MapKitGoogleStyler"
+               BlueprintIdentifier = "45C4E325E7851DD54CC3AD44C7A71935"
+               BuildableName = "TinyConstraints.framework"
+               BlueprintName = "TinyConstraints"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

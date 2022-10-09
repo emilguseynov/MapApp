@@ -6,6 +6,7 @@ target 'MapApp' do
   use_frameworks!
 
 pod "MapKitGoogleStyler"
+pod "TinyConstraints"
 
 
   # Pods for MapApp

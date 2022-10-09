@@ -27,11 +27,14 @@ class ViewController: UIViewController {
     }
     
     fileprivate func mapViewSetup(_ initialLocation: CLLocation) {
-            view.addSubview(mapView)
-            mapView.frame = view.bounds
-            mapView.delegate = self
-            mapView.centerToLocation(initialLocation)
-        }
+        view.addSubview(mapView)
+        mapView.frame = view.bounds
+        mapView.delegate = self
+        mapView.centerToLocation(initialLocation)
+        
+        mapView.register(AnnotationMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.showAnnotations(mapAnnotations, animated: true)
+    }
     
     fileprivate func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
@@ -71,4 +74,14 @@ extension ViewController: MKMapViewDelegate {
             return MKOverlayRenderer(overlay: overlay)
         }
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        if let annotation = annotation as? MapAnnotation {
+          annotationView?.canShowCallout = true
+          annotationView?.detailCalloutAccessoryView = CalloutAccessoryView(annotation: annotation)
+        }
+        return annotationView
+      }
+    
 }
