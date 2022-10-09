@@ -18,6 +18,7 @@
 		C75DBF1228E9DE2F00D937A2 /* MapStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DBF1128E9DE2F00D937A2 /* MapStyle.swift */; };
 		C79DF7F228F049CA00D66CC5 /* MapAnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF7F128F049CA00D66CC5 /* MapAnnotationModel.swift */; };
 		C79DF7F428F1993000D66CC5 /* overlay.json in Resources */ = {isa = PBXBuildFile; fileRef = C79DF7F328F1993000D66CC5 /* overlay.json */; };
+		C79DF7F728F2837700D66CC5 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF7F628F2837700D66CC5 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C75DBF1128E9DE2F00D937A2 /* MapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStyle.swift; sourceTree = "<group>"; };
 		C79DF7F128F049CA00D66CC5 /* MapAnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationModel.swift; sourceTree = "<group>"; };
 		C79DF7F328F1993000D66CC5 /* overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = overlay.json; path = ../../../../Desktop/overlay.json; sourceTree = "<group>"; };
+		C79DF7F628F2837700D66CC5 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		C75DBEF828E991F100D937A2 /* MapApp */ = {
 			isa = PBXGroup;
 			children = (
+				C79DF7F528F2836700D66CC5 /* Service */,
 				C75DBF1428E9DED200D937A2 /* Extensions */,
 				C75DBF1328E9DEBD00D937A2 /* Model */,
 				C75DBEFD28E991F100D937A2 /* ViewController.swift */,
@@ -100,6 +103,14 @@
 				C75DBF0D28E994E700D937A2 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C79DF7F528F2836700D66CC5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C79DF7F628F2837700D66CC5 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		F19EBBDDAA423276EFCC64C0 /* Frameworks */ = {
@@ -235,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75DBF1228E9DE2F00D937A2 /* MapStyle.swift in Sources */,
+				C79DF7F728F2837700D66CC5 /* Service.swift in Sources */,
 				C75DBEFE28E991F100D937A2 /* ViewController.swift in Sources */,
 				C75DBF1028E998C700D937A2 /* MapAnnotation.swift in Sources */,
 				C75DBEFA28E991F100D937A2 /* AppDelegate.swift in Sources */,
