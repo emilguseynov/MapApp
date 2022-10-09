@@ -12,16 +12,9 @@ import MapKitGoogleStyler
 class ViewController: UIViewController {
 
     let mapView = MKMapView()
-    
     private var mapAnnotations: [MapAnnotation] = []
     
     
-    fileprivate func mapViewSetup(_ initialLocation: CLLocation) {
-        view.addSubview(mapView)
-        mapView.frame = view.bounds
-        mapView.delegate = self
-        mapView.centerToLocation(initialLocation)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +22,18 @@ class ViewController: UIViewController {
         let initialLocation = CLLocation(latitude: 55.75, longitude: 37.61)
         
         mapViewSetup(initialLocation)
-        
         loadInitialData()
-        
         configureTileOverlay()
-        
-        
     }
     
-    private func configureTileOverlay() {
+    fileprivate func mapViewSetup(_ initialLocation: CLLocation) {
+            view.addSubview(mapView)
+            mapView.frame = view.bounds
+            mapView.delegate = self
+            mapView.centerToLocation(initialLocation)
+        }
+    
+    fileprivate func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
         guard let overlayFileURLString = Bundle.main.path(forResource: "overlay", ofType: "json") else {
             return
@@ -48,35 +44,19 @@ class ViewController: UIViewController {
         guard let tileOverlay = try? MapKitGoogleStyler.buildOverlay(with: overlayFileURL) else {
             return
         }
-        
         // And finally add it to your MKMapView
         mapView.addOverlay(tileOverlay)
     }
     
-    
-    
     fileprivate func loadInitialData() {
-        let urlString = "https://run.mocky.io/v3/96149d36-4ce8-4d4b-a3ac-f937068a1d35"
-        
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { data, resp, err in
-            if let err = err {
-                fatalError("error: \(err)")
+        Service.shared.loadInitialData { mapAnnotations, err in
+            self.mapAnnotations.append(contentsOf: mapAnnotations ?? [])
+            
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(self.mapAnnotations)
+                self.view.reloadInputViews()
             }
-            do {
-                let modelObjects = try JSONDecoder().decode([MapAnnotationModel].self, from: data!)
-                let objects = modelObjects.compactMap(MapAnnotation.init)
-                self.mapAnnotations.append(contentsOf: objects)
-                
-                DispatchQueue.main.async {
-                    self.mapView.addAnnotations(self.mapAnnotations)
-                    self.view.reloadInputViews()
-                }
-            } catch {
-                print("Failed to decode: ", error)
-            }
-        }.resume()
-        
+        }
     }
 }
 
